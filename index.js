@@ -7,11 +7,15 @@ var plist = require("plist");
 var thisPath = process.argv[1];
 var thisPath = path.dirname(thisPath); //dependency directory
 var privacyText = "This app requires access to the photo library to function";
+var privacyAddText = "This app writes to your photo library";
 const myPackagePath = path.resolve(thisPath, "package.json");
 if (fs.existsSync(myPackagePath)) {
   const mypackage = require(myPackagePath);
   if (typeof mypackage.IOSPhotoLibraryPrivacyText != "undefined") {
     privacyText = mypackage.IOSPhotoLibraryPrivacyText;
+  }
+  if (typeof mypackage.IOSPhotoLibraryAddPrivacyText != "undefined") {
+    privacyAddText = mypackage.IOSPhotoLibraryAddPrivacyText;
   }
 }
 
@@ -29,6 +33,10 @@ if (fs.existsSync(packagePath)) {
     console.log("Setting from parent package");
     privacyText = package.IOSPhotoLibraryPrivacyText;
   }
+  if (typeof package.IOSPhotoLibraryAddPrivacyText != "undefined") {
+    console.log("Setting from parent package");
+    privacyAddText = package.IOSPhotoLibraryAddPrivacyText;
+  }
 }
 var iosPath = path.resolve(thisPath, "ios");
 if (!fs.existsSync(iosPath)) {
@@ -41,6 +49,7 @@ plists.map(path => {
   const source = fs.readFileSync(path, "utf8");
   var o = plist.parse(source);
   o.NSPhotoLibraryUsageDescription = privacyText;
+  o.NSPhotoLibraryAddUsageDescription = privacyAddText;
   const xml = plist.build(o);
   fs.writeFileSync(path, xml);
 });
