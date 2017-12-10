@@ -1,6 +1,6 @@
 {
   "name": "react-native-photolibrary-ios-enable",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Enable IOS photolibrary by setting privacy text",
   "main": "index.js",
   "scripts": {
@@ -9,22 +9,19 @@
   },
   "rnpm": {
     "commands": {
-      "postlink":
-        "node node_modules/react-native-photolibrary-ios-enable/index.js"
+      "postlink": "node node_modules/react-native-photolibrary-ios-enable/index.js"
     }
   },
   "repository": {
     "type": "git",
-    "url":
-      "git+https://github.com/rhdeck/react-native-photolibrary-ios-enable.git"
+    "url": "git+https://github.com/rhdeck/react-native-photolibrary-ios-enable.git"
   },
   "author": "Ray Deck",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rhdeck/react-native-camera-ios-enable/issues"
   },
-  "homepage":
-    "https://github.com/rhdeck/react-native-photolibrary-ios-enable#readme",
+  "homepage": "https://github.com/rhdeck/react-native-photolibrary-ios-enable#readme",
   "dependencies": {
     "glob": "^7.1.2",
     "plist": "^2.1.0"
