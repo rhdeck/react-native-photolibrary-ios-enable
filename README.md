@@ -1,4 +1,4 @@
-# react-native-camera-ios-enable
+# react-native-photolibrary-ios-enable
 
 Adds security message to allow use of the photo library without requiring XCode intervention
 
